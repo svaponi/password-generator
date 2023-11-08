@@ -1,0 +1,29 @@
+<html>
+<head>
+    <title>Password Generator</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+</head>
+<body onload="setup()">
+<main>
+    <h1>Password Generator</h1>
+    <div class="controls">
+        <input type="range" id="size-slider" min="8" max="64" value="12" step="1"/>
+        <output id="size"></output>
+    </div>
+    <div class="controls">
+        <input type="checkbox" class="checkbox-input" id="include-signs">
+        <label for="include-signs" class="checkbox-custom"></label>
+        <label class="checkbox-label" for="include-signs">include signs</label>
+    </div>
+    <div class="password-container">
+        <code id="password">...</code>
+    </div>
+    <div class="buttons">
+        <button id="refresh">Refresh</button>
+        <button id="copy">Copy</button>
+    </div>
+</main>
+</body>
+</html>

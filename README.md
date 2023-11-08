@@ -1,2 +1,3 @@
 # password-generator
-Password Generator
+
+A simple online [password generator](https://svaponi.github.io/password-generator/).
