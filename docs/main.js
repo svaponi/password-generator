@@ -26,7 +26,7 @@ function setup() {
 
         if (forceUnderscore && !password.includes("_")) {
             const _index = Math.floor(Math.random() * password.length - 1)
-            password = password.slice(0, _index) + "_" + password.slice(_index, password.length)
+            password = password.slice(0, _index) + "_" + password.slice(_index + 1, password.length)
         }
 
         passwordEl.innerText = password;
