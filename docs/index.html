@@ -10,15 +10,19 @@
     <h1>Password Generator</h1>
     <div class="controls">
         <input type="range" id="size-slider" min="8" max="64" value="16" step="1"/>
-        <output id="size"></output>
+        <span class="size-container"><output id="size"></output></span>
     </div>
     <div class="controls">
-        <input type="checkbox" class="checkbox-input" id="include-underscores" checked>
-        <label for="include-underscores" class="checkbox-custom"></label>
-        <label for="include-underscores" class="checkbox-label">include underscore</label>
-        <input type="checkbox" class="checkbox-input" id="include-signs">
-        <label for="include-signs" class="checkbox-custom"></label>
-        <label for="include-signs" class="checkbox-label">include other signs</label>
+        <span class="checkbox-container">
+            <input type="checkbox" class="checkbox-input" id="include-underscores" checked>
+            <label for="include-underscores" class="checkbox-custom"></label>
+            <label for="include-underscores" class="checkbox-label">include underscore</label>
+        </span>
+        <span class="checkbox-container">
+            <input type="checkbox" class="checkbox-input" id="include-signs">
+            <label for="include-signs" class="checkbox-custom"></label>
+            <label for="include-signs" class="checkbox-label">include other signs</label>
+        </span>
     </div>
     <div class="password-container">
         <code id="password">...</code>
