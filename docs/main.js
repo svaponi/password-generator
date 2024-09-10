@@ -5,14 +5,15 @@ function setup() {
     const passwordEl = document.getElementById("password")
     const sizeOutput = document.getElementById("size")
     const sizeSlider = document.getElementById("size-slider");
+    const includeUnderscoresCheck = document.getElementById("include-underscores");
     const includeSignsCheck = document.getElementById("include-signs");
 
     function refresh() {
         sizeOutput.value = sizeSlider.value;
-        generateRandomPassword(sizeOutput.value, includeSignsCheck.checked)
+        generateRandomPassword(sizeOutput.value, includeSignsCheck.checked, includeUnderscoresCheck.checked)
     }
 
-    function generateRandomPassword(length, includeSigns = false, forceUnderscore = true) {
+    function generateRandomPassword(length, includeSigns, includeUnderscores) {
         let charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         if (includeSigns) {
             charset += "!@#$%^&*()-_=+"
@@ -24,7 +25,7 @@ function setup() {
             password += charset.charAt(randomIndex);
         }
 
-        if (forceUnderscore && !password.includes("_")) {
+        if (includeUnderscores && !password.includes("_")) {
             const _index = Math.floor(Math.random() * password.length - 1)
             password = password.slice(0, _index) + "_" + password.slice(_index + 1, password.length)
         }
@@ -64,6 +65,7 @@ function setup() {
 
     refreshBtn.onclick = () => refresh()
     copyBtn.onclick = () => copyPasswordToClipboard()
+    includeUnderscoresCheck.onchange = () => refresh()
     includeSignsCheck.onchange = () => refresh()
     sizeSlider.oninput = () => refresh()
     passwordEl.ondblclick = () => copyPasswordToClipboard()
