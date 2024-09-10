@@ -45,6 +45,7 @@ label[for] {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    user-select: all;
 }
 
 .buttons,
