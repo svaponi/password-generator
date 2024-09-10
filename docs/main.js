@@ -76,5 +76,5 @@ function setup() {
     sizeSlider.oninput = () => refresh()
     passwordEl.ondblclick = () => copyPasswordToClipboard()
 
-    refresh();
+    setTimeout(refresh, 200)
 }
