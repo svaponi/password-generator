@@ -8,9 +8,15 @@ function setup() {
     const includeUnderscoresCheck = document.getElementById("include-underscores");
     const includeSignsCheck = document.getElementById("include-signs");
 
+    let debounceId = null;
+
     function refresh() {
-        sizeOutput.value = sizeSlider.value;
-        generateRandomPassword(sizeOutput.value, includeSignsCheck.checked, includeUnderscoresCheck.checked)
+        clearTimeout(debounceId);
+        debounceId = setTimeout(() => {
+            const size = sizeSlider.value
+            sizeOutput.value = size;
+            generateRandomPassword(size, includeSignsCheck.checked, includeUnderscoresCheck.checked)
+        }, 200)
     }
 
     function generateRandomPassword(length, includeSigns, includeUnderscores) {
