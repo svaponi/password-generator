@@ -13,7 +13,7 @@ function setup() {
     function refresh() {
         clearTimeout(debounceId);
         debounceId = setTimeout(() => {
-            const size = sizeSlider.value
+            const size = parseInt(sizeSlider.value, 10);
             sizeOutput.value = size;
             generateRandomPassword(size, includeSignsCheck.checked, includeUnderscoresCheck.checked)
         }, 200)
@@ -32,8 +32,8 @@ function setup() {
         }
 
         if (includeUnderscores && !password.includes("_")) {
-            const _index = Math.floor(Math.random() * password.length - 1)
-            password = password.slice(0, _index) + "_" + password.slice(_index + 1, password.length)
+            const _index = Math.floor(Math.random() * (password.length - 1))
+            password = password.slice(0, _index) + "_" + password.slice(_index + 1)
         }
 
         passwordEl.innerText = password;
